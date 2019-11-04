@@ -1,10 +1,9 @@
 /* .background{
   background-color: white;
   width: 70%;
-} */
-
+} rgb(132, 190, 218)*/
 body {
-  background-color: rgb(132, 190, 218);
+  background-color:#b499d3;
 }
 
 .font-weight-bolder{

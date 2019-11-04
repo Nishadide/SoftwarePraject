@@ -1,17 +1,32 @@
-<p>usersName : {{userName}} {{userId}}</p>
+<div *ngIf="uuStatus">
+<div style="margin-top: -40px;" class="row">
+  <div class="col-sm-4"></div>
+ <div style="text-align: center;" class="col-sm-4">
+    <div *ngIf="s">
+        <div class="on"></div><h5 style="margin-left: -25px;margin-top: -18px;"> online</h5></div>
+        <div *ngIf="!s">
+          <div class="off"></div><h5 style="margin-left: -25px;margin-top: -18px;"> offline</h5></div>
+        </div>
+ </div>
+</div>
+ 
+  
 
-<p *ngIf="uuStatus"><span *ngIf="s"> online</span><span *ngIf="!s"> offline</span></p>
+  
+      
+   
+    
 <div class="msg_history">
   <div *ngIf="cRef">
 
     <div *ngFor="let mh of msgHistory">
       <div class="incoming_msg">
         <div *ngIf="mh.from_id !== userId">
-          <div class="incoming_msg_img"> <img src="https://ptetutorials.com/images/user-profile.png" > </div>
+          
           <div class="received_msg">
             <div class="received_withd_msg">
-              <p> from:{{mh.from_id}} to :{{mh.yo_id}} message :{{mh.message}}</p>
-              <span class="time_date"> 11:01 AM | June 9</span>
+              <p> Message :{{mh.message}}</p>
+              <span class="time_date"> {{mh.createdAt}}</span>
             </div>
           </div>
         </div>
@@ -20,8 +35,8 @@
 
         
         <div class="sent_msg" *ngIf="mh.from_id === userId">
-          <p> from:{{mh.from_id}} to :{{mh.yo_id}} message :{{mh.message}}</p>
-          <span class="time_date"> 11:01 AM | June 9</span>
+          <p> Message :{{mh.message}}</p>
+          <span class="time_date"> {{mh.createdAt}}</span>
         </div>
       </div>
     </div>
@@ -36,7 +51,7 @@
 
     <div class="incoming_msg" *ngFor="let ml of msgList">
 
-      <div class="incoming_msg_img"> <img src="https://ptetutorials.com/images/user-profile.png" alt="sunil"> </div>
+     
       <div class="received_msg">
         <div class="received_withd_msg">
           <p>{{ml.BEname}} is saying: {{ml.BEmsg}} </p>

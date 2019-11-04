@@ -7,7 +7,7 @@ const Op = Sequelize.Op;
 
 exports.loadMsgHis = (req,res) =>{
   chat.findAll({
-      attributes: ['from_id','to_id','message'],
+      
     where: {
         [Op.or]:[{[Op.and]:[{from_id :req.body.sendId},{to_id :req.body.recId}]},
                  {[Op.and]:[{from_id :req.body.recId},{to_id :req.body.sendId}]}]
