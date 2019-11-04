@@ -16,9 +16,13 @@
     "mysql2": "^1.6.5",
     "nodemailer": "^6.3.0",
     "nodemon": "^1.18.10",
-    "sequelize": "^4.43.0",
+    "sequelize": "^4.44.3",
     "sequelizer": "^1.1.3",
     "socket.io": "^2.2.0"
+  },
+  "engines": {
+    "node": "10.15.1",
+    "npm": "6.10.3"
   },
   "devDependencies": {},
   "scripts": {
