@@ -24,7 +24,9 @@ export class ChatComponent implements OnInit {
     sendId :0,
     recId :0
   }
-
+  deleteId={
+    id:0
+  }
   notShowedMsg={
     from :0,
     to :0
@@ -35,7 +37,10 @@ export class ChatComponent implements OnInit {
   Msg: any;
   cRef= false;
   s=false;
-
+  CuSeMsg={
+    BEsId:0,
+    BEmsg:''
+  }
 
   private msg: string;
   private msgList: any[] = [];
@@ -48,7 +53,7 @@ export class ChatComponent implements OnInit {
   private userName: string;
   private userId
   private userEmail: string;
-  private CuSeMsg: any[] = [];
+  
   private  check;
   
   ngOnInit() {
@@ -141,10 +146,10 @@ export class ChatComponent implements OnInit {
    
     console.log('on msg to:'+this.reciverEmail+' name:'+this.reciverName)
     this.socketCommService.sendMessage(this.reciverEmail,this.reciverId,this.senderId ,this.userEmail, this.reciverName, this.msg);
-    this.CuSeMsg.push(this.msg);
+    this.CuSeMsg.BEmsg=this.msg;
+    this.msgList.push(this.CuSeMsg)
     this.RTSmsg = true;
     this.msg='';
- 
   }
 
   logout(){
@@ -153,7 +158,7 @@ export class ChatComponent implements OnInit {
     window.location.reload();
     }
   contentRf(){
-       this.CuSeMsg=[];
+       
       this.msgList=[];
       this.msg='';
      console.log("refreched the content");
@@ -166,9 +171,24 @@ export class ChatComponent implements OnInit {
     console.log('msgdetails:'+ this.msgDetails.sendId+' '+this.msgDetails.recId)
     this.socketCommService.loadMsgHis(this.msgDetails).subscribe(res=>{
       this.msgHistory=res
-      console.log(this.msgHistory);
-    }
-     
-    )
+      console.log("his");
+      console.log(res)
+    } )
+  }
+  delete(id){
+    this.deleteId.id=id
+    console.log("deleted"+this.deleteId)
+    this.socketCommService.deleteMsg(this.deleteId).subscribe(xx=>{
+      console.log("del res:"+xx);
+      if(xx == 1){
+        this.socketCommService.loadMsgHis(this.msgDetails).subscribe(res=>{
+          this.msgHistory=res
+          console.log("his");
+          console.log(res)
+        }
+         
+        )
+      }
+    })
   }
 }

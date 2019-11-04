@@ -96,5 +96,8 @@ export class SocketcommService implements OnInit{
  public notShowedMsg(notShowedDetails){
    return this.http.post('/users/Chat/updateIsViewed',notShowedDetails)
  }
+ public deleteMsg(id){
+   return this.http.post('/users/Chat/deleteMsg',id)
+ }
 
 }
