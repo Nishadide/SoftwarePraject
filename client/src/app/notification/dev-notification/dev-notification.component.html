@@ -61,7 +61,7 @@
             <h5><b>New</b></h5><br>
 
             <div *ngFor="let reqNot of accProReqNew">
-              <button (click)="viewClientRequest(reqNot.id)">
+              <button (click)="viewClientRequest(reqNot.id)" class="tag">
                 <div class="row">
                   <div class="col-1">
                       <img src="http://localhost:3000/{{ reqNot?.project?.user?.profile_img }}"
