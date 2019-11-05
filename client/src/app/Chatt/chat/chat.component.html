@@ -26,7 +26,11 @@
           <div class="received_msg">
             <div class="received_withd_msg">
               <p> Message :{{mh.message}}</p>
-              <span class="time_date"> {{mh.createdAt}}</span>
+              <div class="row">
+              <div class="col-sm-9">
+              <span class="time_date"> {{mh.createdAt}}</span></div> 
+              <div class="col-sm-3"><span style="color: red;" class="time_date" (click)="delete(mh.id)">Delete</span></div>
+            </div>
             </div>
           </div>
         </div>
@@ -36,30 +40,36 @@
         
         <div class="sent_msg" *ngIf="mh.from_id === userId">
           <p> Message :{{mh.message}}</p>
-          <span class="time_date"> {{mh.createdAt}}</span>
+          <div class="row">
+              <div class="col-sm-9">
+              <span class="time_date"> {{mh.createdAt}}</span></div> 
+              <div class="col-sm-3"><span (click)="delete(mh.id)" style="color: red;" class="time_date">Delete</span></div>
+            </div>
+            
+         
         </div>
       </div>
     </div>
+<div *ngFor="let ml of msgList">
+    <div class="outgoing_msg" >
 
-    <div class="outgoing_msg" *ngFor="let cm of CuSeMsg">
-
-      <div class="sent_msg">
-        <p> message :{{cm}}</p>
-        <span class="time_date"> 11:01 AM | June 9</span>
+      <div class="sent_msg" *ngIf="ml. BEsId === 0">
+        <p> message :{{ml.BEmsg}}</p>
+        
       </div>
     </div>
 
-    <div class="incoming_msg" *ngFor="let ml of msgList">
+    <div class="incoming_msg" >
 
      
-      <div class="received_msg">
+      <div class="received_msg" *ngIf="ml. BEsId !== 0">
         <div class="received_withd_msg">
           <p>{{ml.BEname}} is saying: {{ml.BEmsg}} </p>
-          <span class="time_date"> 11:01 AM | June 9</span>
+          
         </div>
       </div>
     </div>
-
+  </div>
 
     
     </div>

@@ -7,6 +7,7 @@ const con_chat = require("../controllers/chat")
 Chat.post('/Chat/loadMsgHis',con_chat.loadMsgHis)
 Chat.post('/Chat/countMsgs',con_chat.countMsgs)
 Chat.post('/Chat/updateIsViewed',con_chat.updateIsViewed)
+Chat.post('/Chat/deleteMsg',con_chat.deleteMsgs)
 
 
 Chat.use(cors())
