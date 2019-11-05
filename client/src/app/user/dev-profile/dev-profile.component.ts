@@ -146,7 +146,7 @@ export class DevProfileComponent implements OnInit {
 
 
   editSkill(){
-    this.showSkill = true
+    // this.showSkill = true
   }
 
 
