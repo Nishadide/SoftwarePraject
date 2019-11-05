@@ -1,8 +1,9 @@
 <div class="container">
-
+<br>
   <button (click)="backToProject()">&lt;&lt;&lt;Back to projects</button>
-
+  
   <div *ngIf="marked1">
+    <br>
     <div class="row">
       <div class="col mx-auto">
 
@@ -36,7 +37,7 @@
             </tr>
           </table>
         </div>
-
+        <br>
         <div *ngIf="projects?.isShowed"><button (click)="onClick( )">Edit project</button>
           <button (click)="deleteProject( )">Delete project</button>
         </div>
@@ -231,7 +232,7 @@
                     [(ngModel)]="credentials.project_description"></textarea>
 
                   <button (click)="EditProject()" class="btn btn-info">Confirm</button>
-                  <button (click)="CancleEditProject()" class="btn btn-info">Cancle</button>
+                  <button (click)="CancleEditProject()" class="btn btn-info">Cancel</button>
 
                   <br><br>
                 </form>
