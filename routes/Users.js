@@ -22,6 +22,9 @@ users.get('/technoprofile',user_cont.technology)
 //Edit profile
 users.post('/editProf',user_cont.edit_profile)
 
+
+//email verification
+
 users.post('/register/send',user_cont.send_email)
 
 users.post('/verify',user_cont.verify_email)

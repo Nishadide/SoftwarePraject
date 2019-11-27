@@ -7,7 +7,7 @@ const Op = Sequelize.Op;
 
 exports.loadMsgHis = (req,res) =>{
   chat.findAll({
-      attributes: ['from_id','to_id','message'],
+     
     where: {
         [Op.or]:[{[Op.and]:[{from_id :req.body.sendId},{to_id :req.body.recId}]},
                  {[Op.and]:[{from_id :req.body.recId},{to_id :req.body.sendId}]}]
@@ -16,6 +16,7 @@ exports.loadMsgHis = (req,res) =>{
      
    }).then(result=>{
         res.json(result)
+        
     })
 
     chatList.update({
@@ -36,6 +37,23 @@ exports.loadMsgHis = (req,res) =>{
         }
     }
     )
+}
+
+exports.deleteMsgs = (req,res) =>{
+    chat.destroy({
+        where :{
+            id : req.body.id,          
+        } 
+    }).then(result=>{
+        console.log(result)
+        res.send('1')
+    }).catch(err=>{
+        console.log(err)
+        res.send('0');
+    })
+
+  
+
 }
 
 exports.countMsgs = (req,res) =>{

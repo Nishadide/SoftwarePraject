@@ -42,7 +42,7 @@ export class LoginComponent implements OnInit {
         else  if(this.auth.getUserDetails().user_type == 'Client')
           this.router.navigateByUrl('/cliCatagory/profile')
         else  if(this.auth.getUserDetails().user_type == 'Admin')
-          this.router.navigateByUrl('/adminCatagory/home')
+          this.router.navigateByUrl('/adminCatagory/home')  
         else
          window.alert(user.error.text)
     },

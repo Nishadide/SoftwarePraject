@@ -1,11 +1,11 @@
-
+<div class="back">
 <div class="container">
 
 <div *ngIf="wholeMarked">
 
 <div *ngIf="marked">
 
-  <div style="text-align: center; margin-top: 5%"><button (click)="AddProject()" class="btn btn-lg btn-primary">Add a
+  <div style="text-align: center;"><button (click)="AddProject()" class="btn btn-lg btn-primary">Add a
       new
       project</button></div>
 
@@ -101,6 +101,7 @@
   </div>
 
 </div>
+  </div>
 
 <div *ngIf="!marked">
   <app-add-project></app-add-project>
@@ -111,6 +112,4 @@
 </div>
 </div>
 <div *ngIf="!wholeMarked"><app-view-project></app-view-project></div>
-
-
 
